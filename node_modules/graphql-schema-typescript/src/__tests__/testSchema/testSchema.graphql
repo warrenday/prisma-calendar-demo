@@ -1,0 +1,27 @@
+schema {
+    query: RootQuery
+    mutation: RootMutation
+    subscription: RootSubscription
+}
+
+type RootQuery {
+    Users(input: UserFilter): [User!]!
+    User: User
+
+    Products: [IProduct!]
+    Search(key: String): SearchResult
+}
+
+type RootMutation {
+    createUser(input: CreateUserInput): User
+}
+
+type RootSubscription {
+    userLoggedIn(filter: String): User!
+    saleMade: String!
+}
+
+# Custom scalar type
+scalar Date
+
+union SearchResult = User | ProductA | ProductB

@@ -1,0 +1,14 @@
+type Event {
+  id: ID!
+  createdAt: String!
+  title: String!
+  description: String!
+  price: Int!
+  spaces: Int!
+  duration: Float!
+  date: String!
+}
+
+type Query {
+  listEvents: [Event!]!
+}

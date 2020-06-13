@@ -1,0 +1,50 @@
+{
+  "name": "tomorrow-prisma-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "export TZ=UTC && BABEL_DISABLE_CACHE=1 nodemon --exec babel-node src/index.ts --extensions \".ts\"",
+    "lint": "eslint . --ext .ts && tsc --project tsconfig.json",
+    "clean": "rm -rf ./node_modules/.cache/babel-loader && jest --clearCache"
+  },
+  "dependencies": {
+    "@prisma/client": "2.0.0",
+    "apollo-server": "2.9.16",
+    "apollo-server-express": "2.9.15",
+    "body-parser": "1.19.0",
+    "date-fns": "2.0.1",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "graphql": "14.5.8",
+    "graphql-import": "0.7.1",
+    "graphql-tag": "2.10.1",
+    "lodash": "4.17.15",
+    "rrule": "2.6.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.5",
+    "@babel/core": "7.5.5",
+    "@babel/node": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/preset-typescript": "7.3.3",
+    "@prisma/cli": "2.0.0",
+    "@types/lodash": "4.14.136",
+    "@types/node": "13.7.0",
+    "@typescript-eslint/eslint-plugin": "2.17.0",
+    "@typescript-eslint/parser": "2.17.0",
+    "babel-plugin-import-graphql": "2.7.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-prettier": "3.1.2",
+    "graphql-schema-typescript": "1.2.10",
+    "nodemon": "2.0.2",
+    "prettier": "2.0.4",
+    "typescript": "3.8.3"
+  },
+  "engines": {
+    "node": "14.4.0"
+  },
+  "author": "Warren Day",
+  "license": "ISC"
+}

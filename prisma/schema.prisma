@@ -1,0 +1,50 @@
+datasource postgresql {
+  url      = env("DATABASE_URL")
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Events
+model EventDetails {
+  id             String           @default(uuid()) @id
+  createdAt      DateTime         @default(now())
+  title          String
+  description    String
+  price          Int
+  spaces         Int
+  duration       Float
+  Event          Event[]
+  EventException EventException[]
+}
+
+model Event {
+  id             String              @default(uuid()) @id
+  createdAt      DateTime            @default(now())
+  rule           String
+  exceptions     EventException[]
+  cancellations  EventCancellation[]
+  eventDetails   EventDetails        @relation(fields: [eventDetailsId], references: [id])
+  eventDetailsId String
+}
+
+model EventException {
+  id             String       @default(uuid()) @id
+  createdAt      DateTime     @default(now())
+  originalDate   DateTime
+  date           DateTime
+  event          EventDetails @relation(fields: [eventDetailsId], references: [id])
+  eventDetailsId String
+  Event          Event?       @relation(fields: [eventId], references: [id])
+  eventId        String?
+}
+
+model EventCancellation {
+  id           String   @default(uuid()) @id
+  createdAt    DateTime @default(now())
+  originalDate DateTime
+  Event        Event?   @relation(fields: [eventId], references: [id])
+  eventId      String?
+}
