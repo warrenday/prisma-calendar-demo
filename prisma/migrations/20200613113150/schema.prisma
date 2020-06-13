@@ -1,5 +1,5 @@
 datasource postgresql {
-  url      = env("DATABASE_URL")
+  url = "***"
   provider = "postgresql"
 }
 
@@ -45,6 +45,6 @@ model EventCancellation {
   id           String   @default(uuid()) @id
   createdAt    DateTime @default(now())
   originalDate DateTime
-  event        Event?   @relation(fields: [eventId], references: [id])
+  Event        Event?   @relation(fields: [eventId], references: [id])
   eventId      String?
 }

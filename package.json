@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "export TZ=UTC && BABEL_DISABLE_CACHE=1 nodemon --exec babel-node src/index.ts --extensions \".ts\"",
     "lint": "eslint . --ext .ts && tsc --project tsconfig.json",
-    "clean": "rm -rf ./node_modules/.cache/babel-loader && jest --clearCache"
+    "clean": "rm -rf ./node_modules/.cache/babel-loader",
+    "codegen": "prisma generate && yarn clean",
+    "migrate": "prisma migrate save --experimental && prisma migrate up --experimental && yarn codegen",
+    "seed": "export TZ=UTC && BABEL_DISABLE_CACHE=1 babel-node src/utils/seed.ts --extensions \".ts\""
   },
   "dependencies": {
     "@prisma/client": "2.0.0",
