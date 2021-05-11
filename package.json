@@ -22,7 +22,7 @@
     "graphql": "14.5.8",
     "graphql-import": "0.7.1",
     "graphql-tag": "2.10.1",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "rrule": "2.6.3"
   },
   "devDependencies": {
